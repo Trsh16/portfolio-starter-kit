@@ -7,9 +7,13 @@ This is a porfolio site template complete with a blog. Includes:
 - RSS Feed
 - Dynamic OG images
 - Syntax highlighting
-- Tailwind v4
+- Tailwind CSS (configured)
 - Vercel Speed Insights / Web Analytics
 - Geist font
+
+## Styling
+
+This project uses Tailwind CSS (via PostCSS). The config file is `tailwind.config.cjs` and global styles are in `app/global.css` (it applies the Geist font as `font-sans`). Edit `tailwind.config.cjs` to customize the theme and content paths.
 
 ## Demo
 
