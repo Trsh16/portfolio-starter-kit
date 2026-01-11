@@ -1,52 +1,79 @@
 ---
-title: 'The Power of Static Typing in Programming'
-publishedAt: '2024-04-07'
-summary: 'In the ever-evolving landscape of software development, the debate between dynamic and static typing continues to be a hot topic.'
+title: "Core ML Based Color Detection App for Color Blind Users"
+publishedAt: "2025-06-05"
+summary: "An iOS-based color detection application using CoreML to help people with Color Vision Deficiency (CVD) recognize colors accurately in real time."
 ---
 
-In the ever-evolving landscape of software development, the debate between dynamic and static typing continues to be a hot topic. While dynamic typing offers flexibility and rapid development, static typing brings its own set of powerful advantages that can significantly improve the quality and maintainability of code. In this post, we'll explore why static typing is crucial for developers, accompanied by practical examples through markdown code snippets.
+<div className="space-y-10">
 
-## Improved Code Quality and Safety
+  <div className="border-b pb-6">
+    <h1 className="text-3xl font-bold">
+      iOS Color Detection App (CoreML)
+    </h1>
+    <div className="mt-3 text-gray-600">
+      An iOS-based color detection application designed to help people with Color Vision Deficiency (CVD) recognize colors accurately using CoreML and the iPhone camera.
+    </div>
+  </div>
 
-One of the most compelling reasons to use static typing is the improvement it brings to code quality and safety. By enforcing type checks at compile time, static typing catches errors early in the development process, reducing the chances of runtime errors.
+  <div className="border rounded-xl p-6 bg-gray-50 space-y-3">
+    <h2 className="text-xl font-semibold">Project Overview</h2>
+    <div>
+      This final project is an iOS-based Color Detection Application designed to help people with Color Vision Deficiency (CVD) or color blindness recognize colors more accurately in daily life.
+    </div>
+    <div>
+      The app works by detecting objects in real time through the camera and instantly displaying the identified color on screen with a simple and accessible interface.
+    </div>
+  </div>
 
-```ts
-function greet(name: string): string {
-  return `Hello, ${name}!`
-}
+  <div className="border rounded-xl p-6">
+    <h2 className="text-xl font-semibold mb-4">Demo Video</h2>
+    <div className="flex justify-center">
+      <video
+        src="/images/demo.mp4"
+        poster="/images/demo-thumb.png"
+        controls
+        preload="metadata"
+        className="w-[320px] md:w-[480px] rounded-lg shadow border"
+      />
+    </div>
+  </div>
 
-// This will throw an error at compile time, preventing potential runtime issues.
-let message: string = greet(123)
-```
+  <div className="border rounded-xl p-6 bg-gray-50 space-y-3">
+    <h2 className="text-xl font-semibold">Background</h2>
+    <div>
+      In Indonesia, up to 10% of the population experiences color blindness. This condition often becomes a barrier in education, job recruitment, and daily activities that require accurate color recognition.
+    </div>
+  </div>
 
-## Enhanced Readability and Maintainability
+  <div className="border rounded-xl p-6">
+    <h2 className="text-xl font-semibold mb-4">Key Features</h2>
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Real-time color detection using camera</li>
+      <li>High accuracy color classification</li>
+      <li>Fast and responsive performance</li>
+      <li>Simple and accessible user interface</li>
+      <li>Powered by CoreML</li>
+    </ul>
+  </div>
 
-Static typing makes code more readable and maintainable. By explicitly declaring types, developers provide a clear contract of what the code does, making it easier for others (or themselves in the future) to understand and modify the codebase.
+  <div className="border rounded-xl p-6 bg-gray-50 space-y-3">
+    <h2 className="text-xl font-semibold">Performance</h2>
+    <div>
+      The system achieves an accuracy rate of <strong>93.5%</strong>, runs in real time, and has received very positive feedback from users.
+    </div>
+  </div>
 
-## Facilitates Tooling and Refactoring
+  <div className="border rounded-xl p-6 mb-16">
+    <h2 className="text-xl font-semibold mb-4">Technology Stack</h2>
+    <ul className="grid grid-cols-2 gap-2">
+      <li className="border rounded-md px-3 py-2 bg-white">Swift</li>
+      <li className="border rounded-md px-3 py-2 bg-white">Xcode</li>
+      <li className="border rounded-md px-3 py-2 bg-white">CoreML</li>
+      <li className="border rounded-md px-3 py-2 bg-white">MVVM Architecture</li>
+    </ul>
+  </div>
 
-Modern IDEs leverage static typing to offer advanced features like code completion, refactoring, and static analysis. These tools can automatically detect issues, suggest fixes, and safely refactor code, enhancing developer productivity and reducing the likelihood of introducing bugs during refactoring.
+  <div>
+  </div>
 
-```csharp
-// Refactoring example: Renaming a method in C#
-public class Calculator {
-    public int Add(int a, int b) {
-        return a + b;
-    }
-}
-
-// After refactoring `Add` to `Sum`, all references are automatically updated.
-public class Calculator {
-    public int Sum(int a, int b) {
-        return a + b;
-    }
-}
-```
-
-## Performance Optimizations
-
-Static typing can lead to better performance. Since types are known at compile time, compilers can optimize the generated code more effectively. This can result in faster execution times and lower resource consumption.
-
-## Conclusion
-
-Static typing offers numerous benefits that contribute to the development of robust, efficient, and maintainable software. By catching errors early, enhancing readability, facilitating tooling, and enabling optimizations, static typing is an invaluable asset for developers. As the software industry continues to mature, the importance of static typing in ensuring code quality and performance cannot be overstated. Whether you're working on a large-scale enterprise application or a small project, embracing static typing can lead to better software development outcomes.
+</div>

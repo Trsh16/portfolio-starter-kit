@@ -1,4 +1,4 @@
-import { getBlogPosts } from 'app/blog/utils'
+import { getBlogPosts } from "./blog/utils"
 
 export const baseUrl = 'https://portfolio-starter-kit-lime-phi-39.vercel.app'
 

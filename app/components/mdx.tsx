@@ -6,23 +6,39 @@ import React from 'react'
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
-    <th key={index}>{header}</th>
+    <th key={index} className="text-left px-2 py-1 border-b">
+      {header}
+    </th>
   ))
   let rows = data.rows.map((row, index) => (
     <tr key={index}>
       {row.map((cell, cellIndex) => (
-        <td key={cellIndex}>{cell}</td>
+        <td key={cellIndex} className="px-2 py-1 border-b">
+          {cell}
+        </td>
       ))}
     </tr>
   ))
 
   return (
-    <table>
+    <table className="w-full table-auto">
       <thead>
         <tr>{headers}</tr>
       </thead>
       <tbody>{rows}</tbody>
     </table>
+  )
+}
+
+// ✅ VIDEO COMPONENT
+function Video(props) {
+  return (
+    <video
+      {...props}
+      controls
+      className="w-full max-w-4xl rounded-xl shadow-lg my-8"
+      preload="metadata"
+    />
   )
 }
 
@@ -45,11 +61,13 @@ function CustomLink(props) {
 }
 
 function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+  const { className, alt, ...rest } = props
+  return <Image alt={alt} className={`${className ?? ''} rounded-lg`} {...rest} />
 }
 
 function Code({ children, ...props }) {
-  let codeHTML = highlight(children)
+  const codeText = typeof children === 'string' ? children : String(children)
+  let codeHTML = highlight(codeText)
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
 }
 
@@ -57,26 +75,39 @@ function slugify(str) {
   return str
     .toString()
     .toLowerCase()
-    .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/&/g, '-and-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-')
 }
 
 function createHeading(level) {
   const Heading = ({ children }) => {
-    let slug = slugify(children)
+    const text = React.Children.toArray(children)
+      .map((c) => {
+        if (typeof c === 'string' || typeof c === 'number') return String(c)
+        if (React.isValidElement(c) && c.props && c.props.children)
+          return String(c.props.children)
+        return ''
+      })
+      .join('')
+
+    let slug = slugify(text)
+
     return React.createElement(
       `h${level}`,
       { id: slug },
-      [
-        React.createElement('a', {
+      React.createElement(
+        'a',
+        {
           href: `#${slug}`,
           key: `link-${slug}`,
           className: 'anchor',
-        }),
-      ],
+          'aria-hidden': true,
+        },
+        '#'
+      ),
       children
     )
   }
@@ -97,6 +128,7 @@ let components = {
   a: CustomLink,
   code: Code,
   Table,
+  Video, // ✅ REGISTER VIDEO
 }
 
 export function CustomMDX(props) {
